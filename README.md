@@ -88,7 +88,7 @@ Want to test out all the features? [Click here to check out a demo!](https://whi
 Install WhiskrJS via NPM:
 
 ```bash
-npm install whiskr-js
+npm install whiskrjs
 ```
 
 ### Via CDN
@@ -97,9 +97,9 @@ Include the CSS and JS files directly in your HTML:
 
 ```html
 <!-- Include CSS -->
-<link rel="stylesheet" href="https://unpkg.com/whiskr-js/dist/whiskr.css">
+<link rel="stylesheet" href="https://unpkg.com/whiskrjs/dist/whiskr.css">
 <!-- Include JS -->
-<script src="https://unpkg.com/whiskr-js/dist/whiskr.umd.js"></script>
+<script src="https://unpkg.com/whiskrjs/dist/whiskr.umd.js"></script>
 ```
 
 ## Getting Started
@@ -110,16 +110,16 @@ Include the CSS and JS files directly in your HTML:
 
 ```javascript
 // Import WhiskrJS
-import Whiskr from 'whiskr-js';
-import 'whiskr-js/dist/whiskr.css';
+import Whiskr from 'whiskrjs';
+import 'whiskrjs/dist/whiskr.css';
 ```
 
 #### CommonJS
 
 ```javascript
 // Require WhiskrJS
-const Whiskr = require('whiskr-js');
-require('whiskr-js/dist/whiskr.css');
+const Whiskr = require('whiskrjs');
+require('whiskrjs/dist/whiskr.css');
 ```
 
 #### UMD (Browser Global)
@@ -128,9 +128,9 @@ Include the CSS and JS files in your HTML:
 
 ```html
 <!-- Include CSS -->
-<link rel="stylesheet" href="https://unpkg.com/whiskr-js/dist/whiskr.css">
+<link rel="stylesheet" href="https://unpkg.com/whiskrjs/dist/whiskr.css">
 <!-- Include JS -->
-<script src="https://unpkg.com/whiskr-js/dist/whiskr.umd.js"></script>
+<script src="https://unpkg.com/whiskrjs/dist/whiskr.umd.js"></script>
 <!-- Whiskr is now available as a global variable -->
 ```
 
@@ -592,7 +592,7 @@ Whiskr.show({
     {
       text: 'Learn More',
       onClick: () => {
-        window.open('https://github.com/whiskrjs/whiskr-js', '_blank');
+        window.open('https://github.com/whiskrjs/whiskrjs', '_blank');
       },
       styles: {
         backgroundColor: '#2196f3',
@@ -648,7 +648,7 @@ Contributions are welcome! Please follow these steps:
 2. Clone Your Fork:
 
 ```bash
-git clone https://github.com/whiskrjs/whiskr-js.git
+git clone https://github.com/whiskrjs/whiskrjs.git
 ```
 
 3. Create a New Branch:
