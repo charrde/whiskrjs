@@ -96,8 +96,6 @@ npm install whiskrjs
 Include the CSS and JS files directly in your HTML:
 
 ```html
-<!-- Include CSS -->
-<link rel="stylesheet" href="https://unpkg.com/whiskrjs/dist/whiskr.css">
 <!-- Include JS -->
 <script src="https://unpkg.com/whiskrjs/dist/whiskr.umd.js"></script>
 ```
@@ -111,7 +109,6 @@ Include the CSS and JS files directly in your HTML:
 ```javascript
 // Import WhiskrJS
 import Whiskr from 'whiskrjs';
-import 'whiskrjs/dist/whiskr.css';
 ```
 
 #### CommonJS
@@ -119,7 +116,6 @@ import 'whiskrjs/dist/whiskr.css';
 ```javascript
 // Require WhiskrJS
 const Whiskr = require('whiskrjs');
-require('whiskrjs/dist/whiskr.css');
 ```
 
 #### UMD (Browser Global)
@@ -127,8 +123,6 @@ require('whiskrjs/dist/whiskr.css');
 Include the CSS and JS files in your HTML:
 
 ```html
-<!-- Include CSS -->
-<link rel="stylesheet" href="https://unpkg.com/whiskrjs/dist/whiskr.css">
 <!-- Include JS -->
 <script src="https://unpkg.com/whiskrjs/dist/whiskr.umd.js"></script>
 <!-- Whiskr is now available as a global variable -->

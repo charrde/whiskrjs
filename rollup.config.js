@@ -1,9 +1,8 @@
-// rollup.config.js
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const { babel } = require('@rollup/plugin-babel');
 const terser = require('@rollup/plugin-terser');
-const css = require('rollup-plugin-css-only');
+const postcss = require('rollup-plugin-postcss');
 
 module.exports = [
   // UMD Build (for browsers)
@@ -18,7 +17,10 @@ module.exports = [
     plugins: [
       nodeResolve(),
       commonjs(),
-      css({ output: 'whiskr.css' }),
+      postcss({
+        inject: 'whiskr.css',
+        minimize: true,
+      }),
       babel({ babelHelpers: 'bundled' }),
       terser(),
     ],
@@ -34,7 +36,10 @@ module.exports = [
     plugins: [
       nodeResolve(),
       commonjs(),
-      css({ output: false }),
+      postcss({
+        inject: 'whiskr.css',
+        minimize: true,
+      }),
       babel({ babelHelpers: 'bundled' }),
       terser(),
     ],

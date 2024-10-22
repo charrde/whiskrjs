@@ -1,5 +1,7 @@
 // whiskr.js
 
+import './whiskr.css';
+
 const Whiskr = (function () {
     // Default global options
     const defaultGlobalOptions = {

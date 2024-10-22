@@ -1,14 +1,16 @@
 {
   "name": "whiskrjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An extremely customizable toast/snackbar library for web applications.",
   "main": "dist/whiskr.umd.js",
   "module": "dist/whiskr.esm.js",
   "browser": "dist/whiskr.umd.js",
+  "types": "src/whiskrjs.d.ts",
   "files": [
     "dist/",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "src/whiskrjs.d.ts"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -31,6 +33,7 @@
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.24.0",
-    "rollup-plugin-css-only": "^4.5.2"
+    "rollup-plugin-css-only": "^4.5.2",
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }
