@@ -1,6 +1,6 @@
 {
   "name": "whiskrjs",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "An extremely customizable toast/snackbar library for web applications.",
   "main": "dist/whiskr.umd.js",
   "module": "dist/whiskr.esm.js",
