@@ -1,0 +1,36 @@
+{
+  "name": "whiskrjs",
+  "version": "1.0.0",
+  "description": "An extremely customizable toast/snackbar library for web applications.",
+  "main": "dist/whiskr.umd.js",
+  "module": "dist/whiskr.esm.js",
+  "browser": "dist/whiskr.umd.js",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "toast",
+    "snackbar",
+    "notification",
+    "library",
+    "customization"
+  ],
+  "author": "Patrick Skinner",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.25.9",
+    "@babel/preset-env": "^7.25.9",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.24.0",
+    "rollup-plugin-css-only": "^4.5.2"
+  }
+}

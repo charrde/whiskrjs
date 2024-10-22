@@ -1,0 +1,512 @@
+/* whiskr.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Root Variables for Theming */
+:root {
+  --whiskr-font-family: 'Roboto', sans-serif;
+  --whiskr-background-color: #333;
+  --whiskr-text-color: #fff;
+  --whiskr-success-color: #28a745;
+  --whiskr-error-color: #dc3545;
+  --whiskr-info-color: #17a2b8;
+  --whiskr-warning-color: #ffc107;
+  --whiskr-warning-text-color: #212529;
+  --whiskr-max-width: 350px;
+  --whiskr-padding: 16px 24px;
+  --whiskr-border-radius: 8px;
+  --whiskr-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --whiskr-z-index: 9999;
+  --whiskr-animation-duration: 0.5s;
+  --whiskr-animation-ease: ease;
+}
+
+/* Whiskr-js Container Positions */
+.whiskr-js-container {
+  position: fixed;
+  z-index: var(--whiskr-z-index);
+  width: auto;
+  max-width: calc(100% - 40px); /* Responsive max-width */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none; /* Allow clicks to pass through */
+  box-sizing: border-box;
+  align-items: flex-end; /* Allow toasts to maintain their own widths */
+}
+
+/* Override max-width and positioning for center positions */
+.whiskr-js-container.center,
+.whiskr-js-container.top-center,
+.whiskr-js-container.bottom-center {
+  max-width: none;
+  width: auto; /* Allow auto width based on content or options */
+  padding: 0 20px;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset to center */
+}
+
+/* Specific vertical positioning for center */
+.whiskr-js-container.center {
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+}
+
+.whiskr-js-container.top-center {
+  top: 20px;
+  /* left: 50%; */
+}
+
+.whiskr-js-container.bottom-center {
+  bottom: 20px;
+  /* left: 50%; */ 
+}
+
+/* Positioning Classes */
+.whiskr-js-container.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.whiskr-js-container.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.whiskr-js-container.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.whiskr-js-container.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Wrapper for Close Buttons */
+.whiskr-js-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  justify-content: flex-end;
+}
+
+.whiskr-js-wrapper.with-close-bar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.whiskr-js-wrapper.with-close-bar .whiskr-js-close-bar,
+.whiskr-js-wrapper.with-close-bar .whiskr-js {
+  width: 100%;
+}
+
+.whiskr-js-wrapper.with-close-bar .whiskr-js-close-bar {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.whiskr-js-wrapper.with-close-bar .whiskr-js {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Ensure interactions within the wrapper */
+.whiskr-js-container .whiskr-js-wrapper .whiskr-js,
+.whiskr-js-container .whiskr-js-wrapper .whiskr-js-close-btn,
+.whiskr-js-container .whiskr-js-wrapper .whiskr-js-close-bar {
+  pointer-events: auto;
+}
+
+/* Whiskr-js Styles */
+.whiskr-js {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--whiskr-background-color);
+  color: var(--whiskr-text-color);
+  padding: var(--whiskr-padding);
+  border-radius: var(--whiskr-border-radius);
+  box-shadow: var(--whiskr-box-shadow);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 100%; /* Ensure toasts don't exceed container width */
+  min-width: 0; /* Allow toasts to shrink below their content's width */
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+/* Text Alignment Classes */
+.whiskr-js.text-left span {
+  text-align: left;
+}
+
+.whiskr-js.text-center span {
+  text-align: center;
+}
+
+.whiskr-js.text-right span {
+  text-align: right;
+}
+
+/* Whiskr-js Types */
+.whiskr-js.success {
+  background-color: var(--whiskr-success-color);
+}
+
+.whiskr-js.error {
+  background-color: var(--whiskr-error-color);
+}
+
+.whiskr-js.info {
+  background-color: var(--whiskr-info-color);
+}
+
+.whiskr-js.warning {
+  background-color: var(--whiskr-warning-color);
+  color: var(--whiskr-warning-text-color);
+}
+
+/* Message Styling */
+.whiskr-js span {
+  flex: 1;
+  overflow: hidden; /* Prevent overflow by default */
+  white-space: nowrap; /* Prevent text wrapping by default */
+}
+
+/* When scrollable */
+.whiskr-js.scrollable-text {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Scrollbar Styling for Scrollable Text */
+.whiskr-js.scrollable-text::-webkit-scrollbar {
+  height: 6px;
+}
+
+.whiskr-js.scrollable-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.whiskr-js.scrollable-text::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+/* Action Buttons Container */
+.whiskr-js-actions {
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap to the next line if necessary */
+  gap: 8px; /* Space between buttons */
+}
+
+/* Action Button */
+.whiskr-js-action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Close Button */
+.whiskr-js-close-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.whiskr-js-close-btn:hover {
+  color: #ddd;
+}
+
+/* Specific Styles for Bar Close Button */
+.whiskr-js-close-bar {
+  width: 100%;
+  height: 12px;
+  background-color: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.whiskr-js-close-bar:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.whiskr-js-close-bar:hover,
+.whiskr-js-action-btn:hover {
+  opacity: 0.8;
+}
+
+.whiskr-js-close-btn:focus,
+.whiskr-js-close-bar:focus,
+.whiskr-js-action-btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Animation Classes */
+.whiskr-fade-in {
+  animation: whiskrFadeIn var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-fade-out {
+  animation: whiskrFadeOut var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-slide-in {
+  animation: whiskrSlideIn var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-slide-out {
+  animation: whiskrSlideOut var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-zoom-in {
+  animation: whiskrZoomIn var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-zoom-out {
+  animation: whiskrZoomOut var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-bounce-in {
+  animation: whiskrBounceIn var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-bounce-out {
+  animation: whiskrBounceOut var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-flip-in {
+  animation: whiskrFlipIn var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-flip-out {
+  animation: whiskrFlipOut var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-rotate-in {
+  animation: whiskrRotateIn var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+.whiskr-rotate-out {
+  animation: whiskrRotateOut var(--whiskr-animation-duration) var(--whiskr-animation-ease) forwards;
+}
+
+/* Keyframes for Animations */
+@keyframes whiskrFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes whiskrFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes whiskrSlideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes whiskrSlideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes whiskrZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes whiskrZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes whiskrBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(25%) scale(1.05);
+  }
+  70% {
+    transform: translateY(-10%) scale(0.95);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes whiskrBounceOut {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  20% {
+    transform: translateY(-10%) scale(1.05);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(25%) scale(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%) scale(0.3);
+  }
+}
+
+@keyframes whiskrFlipIn {
+  from {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes whiskrFlipOut {
+  from {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+}
+
+@keyframes whiskrRotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-200deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes whiskrRotateOut {
+  from {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(200deg);
+  }
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 600px) {
+  .whiskr-js-container {
+    width: 100%;
+    max-width: calc(100% - 40px); /* Adjusted to match main container */
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+  }
+
+  .whiskr-js-wrapper {
+    flex-direction: row; /* Ensure side-by-side layout */
+    align-items: center;
+    gap: 8px;
+  }
+
+  .whiskr-js {
+    flex-direction: column; /* Stack content vertically on small screens */
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 8px;
+    width: 100%;
+    /* Ensure toasts do not exceed container's width */
+    max-width: 100%;
+  }
+
+  .whiskr-js-action-btn,
+  .whiskr-js-close-btn.external,
+  .whiskr-js-close-bar {
+    margin-left: 0;
+    margin-top: 0;
+    width: auto;
+    text-align: center;
+  }
+
+  .whiskr-js span {
+    font-size: 1rem;
+    text-align: inherit; /* Inherit alignment */
+  }
+
+  /* Adjust External Close Button for Mobile */
+  .whiskr-js-close-btn.external {
+    font-size: 1.2rem;
+    align-self: center;
+  }
+
+  .whiskr-js-close-bar {
+    height: 16px;
+  }
+}
+
+/* Style Scrollable Text for Horizontal Scrolling */
+.whiskr-js.scrollable-text {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.whiskr-js.scrollable-text::-webkit-scrollbar {
+  height: 6px;
+}
+
+.whiskr-js.scrollable-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.whiskr-js.scrollable-text::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
