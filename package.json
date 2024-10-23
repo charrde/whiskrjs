@@ -2,6 +2,7 @@
   "name": "whiskrjs",
   "version": "2.0.2",
   "description": "An extremely customizable toast/snackbar library for web applications.",
+  "homepage": "https://whiskr.patski.dev/",
   "main": "dist/whiskr.umd.js",
   "module": "dist/whiskr.esm.js",
   "browser": "dist/whiskr.umd.js",
@@ -23,6 +24,10 @@
     "library",
     "customization"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charrde/whiskrjs.git"
+  },
   "author": "Patrick Skinner",
   "license": "MIT",
   "devDependencies": {
