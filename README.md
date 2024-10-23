@@ -642,7 +642,7 @@ Contributions are welcome! Please follow these steps:
 2. Clone Your Fork:
 
 ```bash
-git clone https://github.com/whiskrjs/whiskrjs.git
+git clone https://github.com/charrde/whiskrjs.git
 ```
 
 3. Create a New Branch:
@@ -680,7 +680,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-If you have any questions or need support, please open an issue on the GitHub repository or contact us via email at contact@whiskrjs.com.
+If you have any questions or need support, please open an issue on the GitHub repository.
 
 ## Frequently Asked Questions
 
